@@ -28,3 +28,6 @@ jump:
     call delay
     add byte [player_y], 10  ; Move back down
     ret
+
+
+
