@@ -1,5 +1,25 @@
 
-; Prince of Persia Clone in x86 Assembly (NASM)
+; Prince of Persia Clone - Main File (prince_clone.asm)
+
+org 100h  ; COM file format
+
+section .text
+start:
+    ; Set video mode to 13h (320x200, 256 colors)
+    mov ah, 0x00
+    mov al, 0x13
+    int 0x10
+
+main_loop:
+    call read_input
+    call apply_gravity
+    call update_player
+    call draw_screen
+    jmp main_loop
+
+exit_game:
+    mov ax, 0x4C00
+    int 0x21
 
 org 100h  ; COM file format
 
